@@ -29,8 +29,6 @@
             white-space: normal;
             color: #fff;
             font-size: 18px;
-            animation: scroll 60s linear infinite;
-            animation-timing-function: linear;
             width: 100%;
             height: calc(100% - 200px); /* Leaves space for footer and additional line below header */
             display: flex;
@@ -39,9 +37,18 @@
             text-align: center;
             padding: 10px;
             box-sizing: border-box;
-            transform: translateY(0); /* Ensure initial visibility */
             line-height: 2; /* Double the line spacing */
             z-index: 1;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: transparent;
+            color: white;
+            font-family: 'Press Start 2P', sans-serif;
+            overflow: hidden;
         }
 
         .footer {
@@ -53,50 +60,12 @@
             font-size: 16px;
             z-index: 2;
         }
-
-        @keyframes scroll {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-100%);
-            }
-        }
-
-        @keyframes color-change {
-            0% { color: #ff0000; }
-            25% { color: #00ff00; }
-            50% { color: #0000ff; }
-            75% { color: #ffff00; }
-            100% { color: #ff00ff; }
-        }
-
-        .marquee span {
-            animation: color-change 3s infinite;
-        }
     </style>
-    <script>
-async function loadAchievements() {
-    try {
-        const response = await fetch('./main/achievements2024.txt');
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const text = await response.text();
-        document.querySelector('.marquee span').innerText = text;
-    } catch (error) {
-        console.error('Error loading file:', error);
-        document.querySelector('.marquee span').innerText = 'Не удалось загрузить данные.';
-    }
-}
-
-        window.onload = loadAchievements;
-    </script>
 </head>
 <body>
     <div class="header">Наши достижения 2024</div>
     <div class="marquee">
-        <span>Загрузка...</span>
+        <iframe src="./achievements2024.txt"></iframe>
     </div>
     <div class="footer">ООО "ТРИНИТУМ" & ООО "БИ ПИТРОН СП"</div>
 </body>
