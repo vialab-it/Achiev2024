@@ -54,7 +54,16 @@
             font-size: 16px;
             z-index: 2;
         }
-
+        
+        #image {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5); /* Resize to 50% */
+            display: none;
+            z-index: 10;
+        }
+        
         @keyframes scroll {
             0% {
                 transform: translateY(0);
@@ -77,6 +86,17 @@
             marquee.style.color = `rgb(${red}, ${green}, ${blue})`;
         });
 
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            const img = document.getElementById('image');
+            img.style.display = 'block';
+
+            // Hide the image after 1 second
+            setTimeout(() => {
+                img.style.display = 'none';
+            }, 500);
+                    });
+
         document.addEventListener('mousedown', (event) => {
             if (event.button === 0) { // Left mouse button
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -84,7 +104,7 @@
                 const gainNode = audioContext.createGain();
 
                 oscillator.type = 'triangle';
-                oscillator.frequency.setValueAtTime(880, audioContext.currentTime); // Bell sound frequency
+                oscillator.frequency.setValueAtTime(880, audioContext.currentTime); // Bell-like sound
 
                 oscillator.connect(gainNode);
                 gainNode.connect(audioContext.destination);
@@ -94,7 +114,6 @@
 
                 oscillator.stop(audioContext.currentTime + 0.5);
             }
-            
         });
     </script>
 
@@ -179,5 +198,6 @@
         </span>
     </div>
     <div class="footer">ООО "ТРИНИТУМ" & ООО "БИ ПИТРОН СП"</div>
+    <img id="image" src="1234.gif" alt="Картинка">
 </body>
 </html>
