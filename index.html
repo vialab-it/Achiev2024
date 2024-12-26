@@ -78,7 +78,7 @@
     <script>
 async function loadAchievements() {
     try {
-        const response = await fetch('achievements2024.txt');
+        const response = await fetch('./main/achievements2024.txt');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
