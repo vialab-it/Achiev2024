@@ -26,11 +26,11 @@
         .marquee {
             position: absolute;
   //          top: 0px; /* 20 Ensures space below the header */
-          bottom: -110%; /* Start from below the visible area */
+          bottom: -120%; /* Start from below the visible area */
             white-space: normal;
             color: #fff;
             font-size: 18px;
-            animation: scroll 20s linear infinite;
+            animation: scroll 25s linear infinite;
             animation-timing-function: linear;
             width: 100%;
             height: calc(100%); /* + 200px Leaves space for footer and additional line below header */
@@ -60,7 +60,7 @@
                 transform: translateY(0);
             }
             100% {
-                transform: translateY(-210%);
+                transform: translateY(-200%);
             }
         }
 
