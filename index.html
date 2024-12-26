@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -13,15 +13,25 @@
             font-family: 'Press Start 2P', sans-serif;
         }
 
+        .header {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            color: #d2b48c; /* Beige color */
+            font-size: 24px;
+        }
+
         .marquee {
             position: absolute;
+            top: 80px;
             white-space: normal;
             color: #fff;
             font-size: 18px;
             animation: scroll 60s linear infinite;
             animation-timing-function: linear;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 80px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -50,11 +60,12 @@
         }
 
         .marquee span {
-            animation: color-change 10s infinite;
+            animation: color-change 3s infinite;
         }
     </style>
 </head>
 <body>
+    <div class="header">Наши достижения 2024</div>
     <div class="marquee">
         <span>Прошла испытательный срок. Разобралась с основными функциями 1С. Вникла в процесс работы организации. С помощью коллеги выстроили рабочую схему по ведению учета документов в 1С УНФ. Наладила хорошие отношения с коллективом и ввела новые традиции по проведению праздников. Прошла обучение по работе с ПО. Сама провела первое обучение по работе с ПО. Впервые занималась организацией стенда для выставки. Сдала заказчику первую документацию. Освоила новые программы для работы над проектами. Устроился на работу. Успешно разработал и собрал конструкцию. Проработал полгода. Получил много нового трудового опыта. За год вела 15 расчетных счетов в двух организациях. Ноябрь - декабрь стараюсь (не всегда получается) делать дневные депозиты (несогласованные с генеральным директором). За пол года освоила больше 47 млн в казначействе. Можем продавать платные консультации.</span>
     </div>
