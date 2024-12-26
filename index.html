@@ -20,18 +20,19 @@
             text-align: center;
             color: #d2b48c; /* Beige color */
             font-size: 24px;
+            z-index: 2;
         }
 
         .marquee {
             position: absolute;
-            top: 10px;
+            top: 120px; /* Ensures space below the header */
             white-space: normal;
             color: #fff;
             font-size: 18px;
             animation: scroll 60s linear infinite;
             animation-timing-function: linear;
             width: 100%;
-            height: calc(100% - 120px);
+            height: calc(100% - 200px); /* Leaves space for footer and additional line below header */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -40,6 +41,17 @@
             box-sizing: border-box;
             transform: translateY(0); /* Ensure initial visibility */
             line-height: 2; /* Double the line spacing */
+            z-index: 1;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #d2b48c; /* Beige color */
+            font-size: 16px;
+            z-index: 2;
         }
 
         @keyframes scroll {
@@ -69,5 +81,6 @@
     <div class="marquee">
         <span>Прошла испытательный срок. Разобралась с основными функциями 1С. Вникла в процесс работы организации. С помощью коллеги выстроили рабочую схему по ведению учета документов в 1С УНФ. Наладила хорошие отношения с коллективом и ввела новые традиции по проведению праздников. Прошла обучение по работе с ПО. Сама провела первое обучение по работе с ПО. Впервые занималась организацией стенда для выставки. Сдала заказчику первую документацию. Освоила новые программы для работы над проектами. Устроился на работу. Успешно разработал и собрал конструкцию. Проработал полгода. Получил много нового трудового опыта. За год вела 15 расчетных счетов в двух организациях. Ноябрь - декабрь стараюсь (не всегда получается) делать дневные депозиты (несогласованные с генеральным директором). За пол года освоила больше 47 млн в казначействе. Можем продавать платные консультации.</span>
     </div>
+    <div class="footer">ООО "ТРИНИТУМ" & ООО "БИ ПИТРОН СП"</div>
 </body>
 </html>
