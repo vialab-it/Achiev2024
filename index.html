@@ -26,11 +26,11 @@
         .marquee {
             position: absolute;
   //          top: 0px; /* 20 Ensures space below the header */
-          bottom: -120%; /* Start from below the visible area */
+          bottom: -170%; /* Start from below the visible area */
             white-space: normal;
             color: #fff;
             font-size: 18px;
-            animation: scroll 25s linear infinite;
+            animation: scroll 50s linear infinite;
             animation-timing-function: linear;
             width: 100%;
             height: calc(100%); /* + 200px Leaves space for footer and additional line below header */
@@ -60,22 +60,45 @@
                 transform: translateY(0);
             }
             100% {
-                transform: translateY(-250%);
+                transform: translateY(-350%);
             }
         }
 
-        @keyframes color-change {
-            0% { color: #ff0000; }
-            25% { color: #00ff00; }
-  //          50% { color: #0000ff; }
-            75% { color: #ffff00; }
-            100% { color: #ff00ff; }
-        }
-
-        .marquee span {
-            animation: color-change 10s infinite;
-        }
     </style>
+
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const windowWidth = window.innerWidth;
+            const mouseX = event.clientX;
+            const red = Math.floor((mouseX / windowWidth) * 255);
+            const green = 255 - red;
+            const blue = Math.floor((mouseX / windowWidth) * 128);
+            const marquee = document.querySelector('.marquee');
+            marquee.style.color = `rgb(${red}, ${green}, ${blue})`;
+        });
+
+        document.addEventListener('mousedown', (event) => {
+            if (event.button === 0) { // Left mouse button
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.type = 'triangle';
+                oscillator.frequency.setValueAtTime(880, audioContext.currentTime); // Bell sound frequency
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.start();
+                gainNode.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.5); // Gradual fade-out
+
+                oscillator.stop(audioContext.currentTime + 0.5);
+            }
+            
+        });
+    </script>
+
+    
 </head>
 <body>
     <div class="header">Наши достижения 2024</div>
