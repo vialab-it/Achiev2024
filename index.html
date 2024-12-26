@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Новогодние достижения</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            overflow: hidden;
+            font-family: 'Press Start 2P', sans-serif;
+        }
+
+        .marquee {
+            position: absolute;
+            white-space: normal;
+            color: #fff;
+            font-size: 18px;
+            animation: scroll 60s linear infinite;
+            animation-timing-function: linear;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            transform: translateY(0); /* Ensure initial visibility */
+            line-height: 2; /* Double the line spacing */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        @keyframes color-change {
+            0% { color: #ff0000; }
+            25% { color: #00ff00; }
+            50% { color: #0000ff; }
+            75% { color: #ffff00; }
+            100% { color: #ff00ff; }
+        }
+
+        .marquee span {
+            animation: color-change 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee">
+        <span>Прошла испытательный срок. Разобралась с основными функциями 1С. Вникла в процесс работы организации. С помощью коллеги выстроили рабочую схему по ведению учета документов в 1С УНФ. Наладила хорошие отношения с коллективом и ввела новые традиции по проведению праздников. Прошла обучение по работе с ПО. Сама провела первое обучение по работе с ПО. Впервые занималась организацией стенда для выставки. Сдала заказчику первую документацию. Освоила новые программы для работы над проектами. Устроился на работу. Успешно разработал и собрал конструкцию. Проработал полгода. Получил много нового трудового опыта. За год вела 15 расчетных счетов в двух организациях. Ноябрь - декабрь стараюсь (не всегда получается) делать дневные депозиты (несогласованные с генеральным директором). За пол года освоила больше 47 млн в казначействе. Можем продавать платные консультации.</span>
+    </div>
+</body>
+</html>
