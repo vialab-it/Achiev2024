@@ -76,19 +76,19 @@
         }
     </style>
     <script>
-        async function loadAchievements() {
-            try {
-                const response = await fetch('achievments2024.txt');
-                if (!response.ok) {
-                    throw new Error('Failed to load achievements file');
-                }
-                const text = await response.text();
-                document.querySelector('.marquee span').innerText = text;
-            } catch (error) {
-                console.error(error);
-                document.querySelector('.marquee span').innerText = 'Не удалось загрузить данные.';
-            }
+async function loadAchievements() {
+    try {
+        const response = await fetch('./achievements2024.txt');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        const text = await response.text();
+        document.querySelector('.marquee span').innerText = text;
+    } catch (error) {
+        console.error('Error loading file:', error);
+        document.querySelector('.marquee span').innerText = 'Не удалось загрузить данные.';
+    }
+}
 
         window.onload = loadAchievements;
     </script>
